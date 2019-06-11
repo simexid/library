@@ -1,0 +1,30 @@
+
+    include this class or use autoload
+
+    require_once('class/smsgateway/smsgateway.class.php'); //Import sms Gateway class only
+    or
+    require_once('simexid_lib/autoload.php');  //Import the simexid library autoload file   
+
+    then
+
+    <?php
+    //your import here
+    .....
+    $apiGw = new smsGateway;  //create
+
+    $apiGw->setApiKey('yourSimexidApiKey'); //insert your simexid api key (retrieved from simexid panel http://www.simexid.org/)
+
+    $deviceList = $apiGw->getDevice();  //retrieve the list of your deviceList
+
+    $apiGw->setDevice('deviceId');  //set the device you want to use for sending (retrieve from simexid panel or from getDevice() method)
+
+    $apiGw->setNumber('33312312312');  //set recipient of sms
+
+    $apiGw->setMessage('This is a test message');  //set the message you want to send to recipient
+
+    $apiGw->sendSms();  //send the request to device for sending.
+
+    ?>
+
+    
+
